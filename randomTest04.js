@@ -81,9 +81,11 @@ class random1{
 }
 const r = new random1();
 const CHUNK_SIZE = 32768; 
+const buf=Buffer.alloc(4);
 function runLoop() {
     for (let i = 0; i < CHUNK_SIZE; i++) {
-        console.log(r.random1());
+        buf.writeUInt32BE(r.random1(), 0);
+        process.stdout.write(buf);
     }
     setImmediate(runLoop);
 }
