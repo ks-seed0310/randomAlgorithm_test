@@ -57,7 +57,7 @@ class random1{
     let s2=BigInt(this.#v2)
     let s3=BigInt(this.#v3)
     let s4=BigInt(this.#v4)
-    this.#v1=Number(t(s2))
+    this.#v1=Number(t(s2+1986875077n))
     s2^=s2<<23n
     this.#v2=Number(t(s1^s2^s3^s4^(s1>>6n)^(s2>>12n)^(s3>>18n)^(s4>>24n)))
     this.#v3=Number(t((s1<<5n)^(BigInt(this.#v2)>>7n)^cs(s3^s4,13n))^(174440041n*s4))
@@ -65,8 +65,8 @@ class random1{
     const _v2=BigInt(this.#v2)
     const _v3=BigInt(this.#v3)
     const _v4=BigInt(this.#v4)
-    this.#v4=Number(t((cs(_v1*_v4,16n)^cs(_v2*_v3,12n)^cs(_v1*_v3,8n)^cs(_v2*_v4,7n))*(((_v1+_v2+_v3+_v4)*(_v1^_v2^_v3^_v4))>>5n)))
-    let g32=t(_v2+s4)
+    this.#v4=Number(t(cs((cs(_v1*_v4,16n)^cs(_v2*_v3,12n)^cs(_v1*_v3,8n)^cs(_v2*_v4,7n))*(((_v1+_v2+_v3+_v4)*(_v1^_v2^_v3^_v4))>>5n),11n)))
+    let g32=t(cs(_v2+s4,17n))
     return Number(g32)
   }
 }
