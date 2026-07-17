@@ -23,4 +23,4 @@ jobs:
     # 3. 自作の乱数をパイプで流し込んでテスト実行！
     - name: Run Dieharder Test
       run: |
-        node randomTest02.js | dieharder -g 200 -a
+        node randomTest03.js | dieharder -g 200 -a
