@@ -70,8 +70,13 @@ class random1{
     return Number(g32)
   }
 }
-const r=new random1()
-while (true) {
-  console.log(r.random1())
+const r = new random1();
+const CHUNK_SIZE = 100000; 
+function runLoop() {
+    for (let i = 0; i < CHUNK_SIZE; i++) {
+        console.log(r.random1());
+    }
+    setImmediate(runLoop);
 }
+runLoop();
 process.on('SIGPIPE', () => process.exit(0));
