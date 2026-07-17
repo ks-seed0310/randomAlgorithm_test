@@ -4,7 +4,7 @@ class random1{
   #v3
   #v4
   constructor(){
-    this.#v1=BigInt(Date.now()>>>0)
+    this.#v1=140737488355328n*BigInt(Date.now())+BigInt(new Uint8Array(1))[0]
     this.#v2=this.#stir32b(Date.now())
     const c=crypto.getRandomValues(new Uint32Array(4))
     const ch=[...c].map(x=>x.toString(16).padStart(8,"0"))
