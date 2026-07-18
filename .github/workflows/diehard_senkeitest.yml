@@ -1,0 +1,26 @@
+name: 線形合同法ランダムテスト
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch: # ボタンをポチッと押して手動で実行することも可能
+
+jobs:
+  run-dieharder:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. あなたの書いたプログラムコードを読み込む
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Linux環境にdieharderをインストールする
+    - name: Install Dieharder
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y dieharder
+
+    # 3. 自作の乱数をパイプで流し込んでテスト実行！
+    - name: Run Dieharder Test
+      run: |
+        node test/senkeigoudou_test1.js | dieharder -g 200 -a
